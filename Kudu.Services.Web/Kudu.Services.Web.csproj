@@ -307,6 +307,7 @@
       <ScriptFilesToCopy Include="..\packages\KuduHandles*\KuduHandles.exe" />
       <ScriptFilesToCopy Include="..\packages\KuduSync.NET*\tools\*" />
       <ScriptFilesToCopy Include="..\Build\NuGet.exe" />
+	  <ScriptFilesToCopy Include="..\Build\NuGet3_5.exe" />
     </ItemGroup>
     <Copy SourceFiles="@(ScriptFilesToCopy)" DestinationFolder="$(TargetDir)\Scripts" SkipUnchangedFiles="true" />
   </Target>

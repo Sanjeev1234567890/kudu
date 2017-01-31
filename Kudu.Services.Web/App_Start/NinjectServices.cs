@@ -76,6 +76,14 @@ namespace Kudu.Services.Web.App_Start
             HttpApplication.RegisterModule(typeof(NinjectHttpModule));
             HttpApplication.RegisterModule(typeof(TraceModule));
             _bootstrapper.Initialize(CreateKernel);
+
+            // if ProgramData already have the msbuild15/state.json,do nothing
+            // else copy state.json for msbuild15 discovery purpose
+            string dest = $"{VfsSpecialFolders.ProgramDataPath}\\Microsoft\\VisualStudio\\Packages\\_Instances";
+            if (!FileSystemHelpers.DirectoryExists(dest))
+            {
+                FileSystemHelpers.CopyDirectoryRecursive($"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFilesX86)}\\MSBuild\\15.0\\StateJson", dest);
+            }
         }
 
         /// <summary>

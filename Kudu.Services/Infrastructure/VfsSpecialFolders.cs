@@ -14,10 +14,23 @@ namespace Kudu.Services.Infrastructure
     {
         private const string SystemDriveFolder = "SystemDrive";
         private const string LocalSiteRootFolder = "LocalSiteRoot";
+        private const string ProgramDataFolder = "ProgramData";
 
         private static string _systemDrivePath;
         private static string _localSiteRootPath;
+        private static string _programDataPath;
 
+        public static string ProgramDataPath
+        {
+            get
+            {
+                if (_programDataPath == null)
+                {
+                    _programDataPath = Environment.GetEnvironmentVariable(ProgramDataFolder) ?? String.Empty;
+                }
+                return _programDataPath;
+            }
+        }
         public static string SystemDrivePath
         {
             get
@@ -146,7 +159,7 @@ namespace Kudu.Services.Infrastructure
                     }
                 }
             }
-            
+
             return result != null;
         }
     }
