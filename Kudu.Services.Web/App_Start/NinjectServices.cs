@@ -82,7 +82,7 @@ namespace Kudu.Services.Web.App_Start
             string dest = $"{VfsSpecialFolders.ProgramDataPath}\\Microsoft\\VisualStudio\\Packages\\_Instances";
             if (!FileSystemHelpers.DirectoryExists(dest))
             {
-                FileSystemHelpers.CopyDirectoryRecursive($"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFilesX86)}\\MSBuild\\15.0\\StateJson", dest);
+                FileSystemHelpers.CopyDirectoryRecursive($"{System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFilesX86)}\\ComServer\\StateJson", dest);
             }
         }
 

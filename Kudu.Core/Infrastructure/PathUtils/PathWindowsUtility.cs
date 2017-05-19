@@ -98,8 +98,7 @@ namespace Kudu.Core.Infrastructure
         internal override string ResolveMSBuildPath()
         {
             string programFiles = SystemEnvironment.GetFolderPath(SystemEnvironment.SpecialFolder.ProgramFilesX86);
-            return Path.Combine(programFiles, "MSBuild", "15.0", "Bin", "MSBuild.exe");
-            //D:\Program Files (x86)\MSBuild\15.0\Bin on kudu 7
+            return Path.Combine(programFiles, "MSBuild15.2", "MSBuild", "15.0", "Bin", "MSBuild.exe");
         }
 
         internal override string ResolveVsTestPath()
@@ -239,7 +238,7 @@ namespace Kudu.Core.Infrastructure
 
             return paths;
         }
-        
+
         internal override bool PathsEquals(string path1, string path2)
         {
             if (path1 == null)
