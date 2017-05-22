@@ -22,7 +22,6 @@ msbuild.log
 _app/
 *.ncrunchsolution
 nuget.exe
-nuget3_5.exe
 Kudu.Services.Web/commit.txt
 Setup/WebPiCmdSetup.log
 Kudu.Services.Web/node_modules/

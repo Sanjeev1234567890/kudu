@@ -15,7 +15,6 @@ namespace Kudu.Core.Infrastructure
 
         public static bool IsWebAppFromFolderStruct(string projectFilePath)
         {
-            // projectFilePath can be project.json, XXX.xproj or XXX.csproj
             var projectDirectory = Path.GetDirectoryName(projectFilePath);
             var webConfig = Path.Combine(projectDirectory, "web.config");
             var wwwrootDirectory = Path.Combine(projectDirectory, "wwwroot");
@@ -55,11 +54,7 @@ namespace Kudu.Core.Infrastructure
                         VsHelper.IncludesReferencePackage(projectPath, "Microsoft.AspNetCore.All") ||
                         IsWebAppFromFolderStruct(projectPath));
             }
-            else if (projectPath.EndsWith(".xproj", StringComparison.OrdinalIgnoreCase))
-            {
-                // for dotnet core preview 2 and before 
-                return IsWebAppFromFolderStruct(projectPath);
-            }
+
             return false;
         }
     }
